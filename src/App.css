@@ -2,14 +2,21 @@
   margin: 0;
 }
 
-.app__headerImage {
-  object-fit: contain;
-  max-width: 7%;
-  background-color: white;
-  /* padding: 20px; */
-  border-bottom: 1px solid lightgray
-}
-
 .App {
   background-color: #fafafa;
 }
+
+.app__header {
+  background-color: white;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.app__headerImage {
+  object-fit: contain;
+  max-width: 7%;
+  /* background-color: white; */
+  /* padding: 20px; */
+  /* border-bottom: 1px solid lightgray */
+}
+

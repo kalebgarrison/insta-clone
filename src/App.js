@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { Button, Input } from "@material-ui/core";
 import ImageUpload from "./components/ImageUpload/ImageUpload";
+import InstagramEmbed from "react-instagram-embed";
 
 function getModalStyle() {
   const top = 50;
@@ -172,31 +173,34 @@ function App() {
       {/* Posts */}
 
       <div className="app__posts">
-        {posts.map(({ id, post }) => (
-          <Post
-            key={id}
-            username={post.username}
-            caption={post.caption}
-            imageUrl={post.imageUrl}
-          />
-        ))}
-      </div>
+        <div className="app__postsleft">
+          {posts.map(({ id, post }) => (
+            <Post
+              key={id}
+              postId={id}
+              user={user}
+              username={post.username}
+              caption={post.caption}
+              imageUrl={post.imageUrl}
+            />
+          ))}
+        </div>
 
-      {/* <Post
-        imageUrl="https://www.andreasreiterer.at/wp-content/uploads/2017/11/react-logo-825x510.jpg"
-        username="kaptainklob77"
-        caption="insta clone!!"
-      />
-      <Post
-        username="bennyg50"
-        caption="I'm angry"
-        imageUrl="https://d1fegwn2wjh0cs.cloudfront.net/08-26-2020/t_42b4b005d6734365add0268c641ad2bd_name_s3___ajc_arc_photo_integration_Freelancer_082520_FALCONS_CC11.jpg"
-      />
-      <Post
-        username="jgarrison55"
-        caption="I'm lost"
-        imageUrl="https://bostonglobe-prod.cdn.arcpublishing.com/resizer/qVY4TW15GGYpX68SDdhQWczGd1E=/1440x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/RX7S4QMMIPUC6FPGJPBKRH5RQI.jpg"
-      /> */}
+        <div className="app__postsright">
+          <InstagramEmbed
+            url="https://www.instagram.com/p/CEHYzsLhQeo/"
+            maxWidth={320}
+            hideCaption={false}
+            containerTagName="div"
+            protocol=""
+            injectScript
+            onLoading={() => {}}
+            onSuccess={() => {}}
+            onAfterRender={() => {}}
+            onFailure={() => {}}
+          />
+        </div>
+      </div>
 
       {user?.displayName ? (
         <ImageUpload username={user.displayName} />
